@@ -1,0 +1,23 @@
+extends layout
+
+block login-form
+	.login-form
+		.login-header Knowledgebase Login
+		form#login-form.form-horizontal(method='post', action='/login')
+			.control-group
+				label.control-label(for='input-username') Username
+				.controls
+					.input-prepend
+						span.add-on
+							i.icon-user
+						input(id='input-username', name='username', type='text', placeholder='Username')
+			.control-group
+				label.control-label(for='input-password') Password
+				.controls
+					.input-prepend
+						span.add-on
+							i.icon-lock
+						input(id='input-password', name='password', type='password', placeholder='Password')
+			.control-group
+				.controls
+					button.btn(type='submit') Sign in
