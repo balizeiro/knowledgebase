@@ -68,6 +68,9 @@ body {
   opacity: 0.5;
   vertical-align: top;
 }
+.side-nav > ul > li a .more-content {
+  float: right;
+}
 .side-nav > ul .second-lvl {
   margin: 0px;
 }
@@ -88,7 +91,7 @@ body {
 }
 .side-nav > ul .second-lvl > li:not(.active-second-lvl) > a:hover {
   background-color: #272727 !important;
-  color: ;
+  color: #aaa;
 }
 /* FORM/LOGIN ==================*/
 .login-form {
