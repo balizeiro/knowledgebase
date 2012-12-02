@@ -15,11 +15,13 @@ exports.index = function(req, res){
 	  , User = db.model('user', userSchema);
 
 	User.findOne({ name: req.param('username'), password: req.param('password') }, function(err, user) {
-		if (user !== null) {
+		// Authenticated user
+		if (user) {
 			req.session.isAuthenticated = true;
 			res.redirect('/dashboard');
+
+		// Invalid user
 		} else {
-			console.log('Invalid user');
 			res.redirect('/');			
 		}
 	});
