@@ -22,6 +22,7 @@ exports.do = function(req, res){
 		// Authenticated user
 		if (user) {
 			req.session.isAuthenticated = true;
+			req.session.user = req.param('username');
 			res.redirect('/dashboard');
 
 		// Invalid user

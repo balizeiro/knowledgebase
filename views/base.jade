@@ -1,11 +1,28 @@
 extends layout
 
 block page-layout
-
 	.header
 		h1.logotype
 			a(href='/dashboard') Knowledge Base
-
+		
+		.btn-group.user-actions
+			a.btn(href='/user/profile') #{user}
+			button.btn.dropdown-toggle(data-toggle='dropdown')
+				span.caret
+			ul.dropdown-menu.pull-right
+				li
+					a(href='/user/profile')
+						i.icon.icon-user
+						span.action-text Profile
+				li
+					a(href='/user/settings')
+						i.icon.icon-cog
+						span.action-text Settings
+				li.divider
+				li
+					a(href='/logout')
+						i.icon.icon-off
+						span.action-text Logout
 
 	nav#accordion.side-nav
 		ul
