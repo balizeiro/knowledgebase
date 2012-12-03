@@ -28,9 +28,9 @@ app.configure(function(){
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
   app.use(flash());
+  app.use(express.static(path.join(__dirname, 'public')));
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
-  app.use(express.static(path.join(__dirname, 'public')));
 });
 
 app.configure('development', function(){
@@ -42,7 +42,9 @@ app.get('/', login.index);
 app.get('/dashboard', IsAuthenticated, dashboard.index);
 app.get('/login', login.index)
 app.post('/login', login.do);
-
+app.get('*', function(req, res){
+  res.render('error404');
+});
 /* SERVER */
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
