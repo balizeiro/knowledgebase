@@ -5,6 +5,10 @@
 var mongoose = require('mongoose');
 
 exports.index = function(req, res){
+	res.render('login', { title: 'Login', error: req.flash('error') });
+};
+
+exports.do = function(req, res){
 
 	// Validate login
 	var db = require("../db").makeConnection(mongoose)
@@ -22,7 +26,8 @@ exports.index = function(req, res){
 
 		// Invalid user
 		} else {
-			res.redirect('/');			
+			req.flash('error', ' wrong username/password.');
+			res.redirect('/login');			
 		}
 	});
 

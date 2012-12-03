@@ -117,6 +117,12 @@ body {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
+.login-message {
+  width: 420px;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+}
 /* PAGE CONTENT ==================*/
 .page-content {
   background-color: #eee;

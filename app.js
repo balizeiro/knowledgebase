@@ -3,10 +3,10 @@ var express = require('express')
   , dashboard = require('./routes/dashboard')
   , login = require('./routes/login')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , flash = require('connect-flash');
 
 var app = express();
-
 
 function IsAuthenticated(req,res,next){  
     if (req.session.isAuthenticated) {
@@ -15,7 +15,6 @@ function IsAuthenticated(req,res,next){
         next(new Error(401));
     }
 }
-
 
 /* CONFIG */
 app.configure(function(){
@@ -28,6 +27,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
+  app.use(flash());
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
@@ -38,9 +38,10 @@ app.configure('development', function(){
 });
 
 /* APP ROUTES */
-app.get('/', homepage.index);
+app.get('/', login.index);
 app.get('/dashboard', IsAuthenticated, dashboard.index);
-app.post('/login', login.index);
+app.get('/login', login.index)
+app.post('/login', login.do);
 
 /* SERVER */
 http.createServer(app).listen(app.get('port'), function(){

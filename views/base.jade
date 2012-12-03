@@ -1,0 +1,66 @@
+extends layout
+
+block page-layout
+
+	.header
+		h1.logotype
+			a(href='/dashboard') Knowledge Base
+
+
+	nav#accordion.side-nav
+		ul
+			li.active 
+				a(href='#')
+					i.icon.icon-home
+					span Dashboard
+			li
+				a(href='#', data-toggle='collapse', data-target='#document', data-parent='#accordion').accordion-toggle
+					i.icon.icon-file
+					span Document
+					i.more-content.icon.icon-chevron-down
+				ul#document.second-lvl.collapse
+					li
+						a(href='#') Create
+					li
+						a(href='#') Edit
+					li
+						a(href='#') Delete
+			li 
+				a(href='#')
+					i.icon.icon-tags
+					span Awesome Option
+			li 
+				a(href='#')
+					i.icon.icon-tags
+					span Awesome Option
+			li
+				a(href='#', data-toggle='collapse', data-target='#awesomeOption', data-parent='#accordion').accordion-toggle
+					i.icon.icon-tags
+					span Awesome Option
+					i.more-content.icon.icon-chevron-down
+				ul#awesomeOption.second-lvl.collapse
+					li
+						a(href='#') awesome option 1
+					li
+						a(href='#') awesome option 2
+					li
+						a(href='#') awesome option 3
+			li 
+				a(href='#')
+					i.icon.icon-tags
+					span Awesome Option
+			li 
+				a(href='#')
+					i.icon.icon-tags
+					span Awesome Option
+			li 
+				a(href='#')
+					i.icon.icon-tags
+					span Awesome Option
+
+	block page-content-wrap
+	.page-content
+		.content-header
+			h1.content-title Dashboard
+		.container-fluid
+			block page-content
