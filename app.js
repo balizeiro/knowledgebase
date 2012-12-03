@@ -12,7 +12,7 @@ function IsAuthenticated(req,res,next){
     if (req.session.isAuthenticated) {
         next();
     } else{
-        next(new Error(401));
+        res.redirect("/");
     }
 }
 
