@@ -20,7 +20,13 @@ block page-layout
 						input(id='input-password', name='password', type='password', placeholder='Password', required)
 			.control-group
 				.controls
-					button.btn(type='submit') Sign in
+					button#btn-login.btn(type='submit') Sign in
+
+
+			section#UserInput
+				a Backbone demo
+			ol#HelloList
+
 	
 	- if (error != "")
 		.alert.alert-error.login-message
