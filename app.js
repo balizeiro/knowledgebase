@@ -2,6 +2,7 @@ var express = require('express')
   , homepage = require('./routes/index')
   , dashboard = require('./routes/dashboard')
   , login = require('./routes/login')
+  , logout = require('./routes/logout')
   , http = require('http')
   , path = require('path')
   , flash = require('connect-flash');
@@ -47,6 +48,7 @@ app.get('/', login.index);
 app.get('/dashboard', IsAuthenticated, dashboard.index);
 app.get('/login', login.index)
 app.post('/login', login.do);
+app.get('/logout', logout.index)
 app.get('*', function(req, res){
   res.render('error404');
 });

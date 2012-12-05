@@ -28,7 +28,7 @@ block page-layout
 			ol#HelloList
 
 	
-	- if (error != "")
+	- if (locals.error && locals.error != "")
 		.alert.alert-error.login-message
 			button.close(data-dismiss='alert') x
 			strong Error:
