@@ -25,4 +25,7 @@ $(function() {
         $(target).collapse('toggle');
 	});
 
+    //initialize tagit
+    $(".document-tags").tagit();
+
 });
