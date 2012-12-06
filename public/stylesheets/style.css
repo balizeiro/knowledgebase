@@ -5,6 +5,16 @@ body {
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #555555 !important;
 }
+.container-fluid .row-fluid:first-child {
+  margin-top: 20px;
+}
+.document-tags input {
+  outline: 0px !important;
+  -webkit-appearance: none !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
 /* PAGE HEADER ==================*/
 .header {
   width: 100%;
