@@ -1,7 +1,6 @@
 var express = require('express')
   , homepage = require('./routes/index')
   , dashboard = require('./routes/dashboard')
-  , document = require('./routes/document')
   , login = require('./routes/login')
   , logout = require('./routes/logout')
   , http = require('http')
@@ -50,7 +49,6 @@ app.get('/dashboard', IsAuthenticated, dashboard.index);
 app.get('/login', login.index)
 app.post('/login', login.do);
 app.get('/logout', logout.index)
-app.get('/document/new', document.new)
 app.get('*', function(req, res){
   res.render('error404');
 });
