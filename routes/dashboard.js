@@ -17,6 +17,7 @@ exports.index = function(req, res){
 	Doc.find({}, function(err, docs) {
 		if (!err) { 
 			console.log(docs);
+			mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
  			res.render('dashboard', { 
  				title: 'Dashboard',
  				documents: JSON.stringify(docs)

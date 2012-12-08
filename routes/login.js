@@ -23,15 +23,14 @@ exports.do = function(req, res){
 		if (user) {
 			req.session.isAuthenticated = true;
 			req.session.user = req.param('username');
+			mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
 			res.redirect('/dashboard');
 
 		// Invalid user
 		} else {
 			req.flash('error', ' wrong username/password.');
+			mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
 			res.redirect('/login');			
 		}
-	});
-
-	mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
-	
+	});	
 };
