@@ -3,12 +3,12 @@ extends base
 block page-content
 	.row-fluid
 		.span12
-			form(method='post', action='/document/new')
-				input(type='text', placeholder='Title').input-block-level
+			form#create-doc-form(method='post', action='/document/new')
+				input(type='text', name='title', placeholder='Title', required).input-block-level
 				ul.document-tags
 					li javascript
 					li css
-				textarea(rows='20',placeholder='Body').input-block-level
+				textarea(rows='20', name='body', placeholder='Body', required).input-block-level
 				.control-group
 				.controls
 					button.btn(type='submit') Create Document

@@ -51,6 +51,7 @@ app.get('/login', login.index)
 app.post('/login', login.do);
 app.get('/logout', logout.index)
 app.get('/document/new', document.new)
+app.post('/document/new', document.save)
 app.get('*', function(req, res){
   res.render('error404');
 });
