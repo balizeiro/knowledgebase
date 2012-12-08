@@ -19,17 +19,17 @@ exports.do = function(req, res){
 	  , User = db.model('user', userSchema);
 
 	User.findOne({ name: req.param('username'), password: req.param('password') }, function(err, user) {
+		mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
+		
 		// Authenticated user
 		if (user) {
 			req.session.isAuthenticated = true;
-			req.session.user = req.param('username');
-			mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
+			req.session.user = req.param('username');			
 			res.redirect('/dashboard');
 
 		// Invalid user
 		} else {
-			req.flash('error', ' wrong username/password.');
-			mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
+			req.flash('error', ' wrong username/password.');			
 			res.redirect('/login');			
 		}
 	});	
