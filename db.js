@@ -1,18 +1,12 @@
-/**
- * Opens a connection to MongoDB.
- *
- * @author lfreitas
- * @param {Object} mongoose instance
- * @return {Object} connection instance
- */
-//teste
-exports.makeConnection = function(mongoose) {
+var mongoose = require('mongoose');
+
+exports.makeConnection = function() {/*
 	var opts = {
-				host : "localhost",
-				port : "27017",
-				username : "jdoe",
-				password : "12345",
-				database : "knowledgebase"
+				host 		: 'localhost'
+			  ,	port 		: '27017'
+			  ,	username 	: ''
+			  ,	password 	: ''
+			  ,	database 	: 'knowledgebase'
 			}, 
 			connection = mongoose.createConnection();
 
@@ -20,9 +14,10 @@ exports.makeConnection = function(mongoose) {
 
 	connection.on('error', console.error.bind(console, 'connection error:'));
 
-	connection.once('open', function callback () {
+	connection.once('open', function callback() {
 	  console.log("Sucessfully connected to MongoDB");
-	});
+	});*/
 
-	return connection;
+	mongoose.connect('mongodb://localhost/knowledgebase');
+	//mongoose.connect('mongodb://dcardoso:pr3V10usP4sSw0rDsSuCk5s@mindsinfusion.com/knowledgebase');	
 }

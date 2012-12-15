@@ -1,3 +1,4 @@
+/*
 (function($) {
 
 	var UserInputView = Backbone.View.extend({
@@ -66,3 +67,4 @@
 	new UserInputView();
 
 })(jQuery);
+*/

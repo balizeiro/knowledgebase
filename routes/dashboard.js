@@ -1,32 +1,15 @@
-/*
- * GET dashboard
- */
-
- var mongoose = require('mongoose');
+var documentModel = require('../models/Document');
 
 exports.index = function(req, res){
-
-	var db = require("../db").makeConnection(mongoose)
-	  , docSchema = new mongoose.Schema({
-		    title: String,
-		    body: String
-		})
-	  , Doc = db.model('documents', docSchema);
-
-	// Get all documents	
-	Doc.find({}, function(err, docs) {
+	documentModel.find({}, function(err, docs) {
 		if (!err) { 
-			console.log(docs);
-			mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
  			res.render('dashboard', { 
  				title: 'Dashboard',
- 				documents: JSON.stringify(docs)
+ 				documents: docs
  			});
         }
         else { 
         	throw err;
         }
     });
-
-
 };

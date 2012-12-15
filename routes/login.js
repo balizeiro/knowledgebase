@@ -1,33 +1,15 @@
-/*
- * POST login
- */
-
-var mongoose = require('mongoose');
+var userModel = require('../models/User');
 
 exports.index = function(req, res){
-	res.render('login', { title: 'Login', error: req.flash('error') });
+	res.render('login', { title: 'Login', error: req.flash('error'), errors: [], messages: [] });
 };
 
-exports.do = function(req, res){
-
-	// Validate login
-	var db = require("../db").makeConnection(mongoose)
-	  , userSchema = new mongoose.Schema({
-		    name: String,
-		    password: String
-		})
-	  , User = db.model('user', userSchema);
-
-	User.findOne({ name: req.param('username'), password: req.param('password') }, function(err, user) {
-		mongoose.disconnect(function() { console.log("All connections closed sucessfully.")});
-		
-		// Authenticated user
+exports.do = function(req, res){	
+	userModel.findOne({ username: req.param('username'), password: req.param('password') }, function(err, user) {
 		if (user) {
 			req.session.isAuthenticated = true;
 			req.session.user = req.param('username');			
 			res.redirect('/dashboard');
-
-		// Invalid user
 		} else {
 			req.flash('error', ' wrong username/password.');			
 			res.redirect('/login');			

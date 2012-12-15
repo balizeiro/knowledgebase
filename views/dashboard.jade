@@ -3,5 +3,21 @@ extends base
 block page-content
 	p this is dashboard page content
 
-	div #{documents}
-
+	article.row
+		.span14
+			- if (documents.length)
+				table.zebra-striped
+					thead
+						tr
+							th Title
+							th Body
+							th Date
+					tbody
+					- documents.forEach(function(doc){
+						tr
+							td= doc['title']
+							td= doc['body']
+							td= doc['date']
+					- })
+			- else
+				p No documents created yet.

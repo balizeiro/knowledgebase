@@ -1,0 +1,25 @@
+extends layout
+
+block page-layout
+    .login-form
+        .login-header Knowledgebase Users
+            article.row
+                .span14
+                    - if (users.length)
+                        table.zebra-striped
+                            thead
+                                tr
+                                    th Username
+                                    th Password
+                                    th Email
+                                    th Registration Date
+                            tbody
+                            - users.forEach(function(user){
+                                tr
+                                    td= user['username']
+                                    td= user['password']
+                                    td= user['email']
+                                    td= user['date']
+                            - })
+                    - else
+                        p No registered users yet.

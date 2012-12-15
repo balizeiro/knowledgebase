@@ -1,5 +1,6 @@
 var express = require('express')
-  , homepage = require('./routes/index')
+  , db = require("./db")
+  , index = require('./routes/index')
   , dashboard = require('./routes/dashboard')
   , document = require('./routes/document')
   , login = require('./routes/login')
@@ -9,6 +10,7 @@ var express = require('express')
   , flash = require('connect-flash');
 
 var app = express();
+db.makeConnection();
 
 function IsAuthenticated(req,res,next){  
     if (req.session.isAuthenticated) {
@@ -46,10 +48,13 @@ app.configure('development', function(){
 
 /* APP ROUTES */
 app.get('/', login.index);
+app.post('/', index.index_post);
 app.get('/dashboard', IsAuthenticated, dashboard.index);
 app.get('/login', login.index)
 app.post('/login', login.do);
 app.get('/logout', logout.index)
+app.get('/user/new', index.signup)
+app.get('/user/list', index.users)
 app.get('/document/new', document.new)
 app.post('/document/new', document.save)
 app.get('*', function(req, res){

@@ -2,7 +2,7 @@ extends layout
 
 block page-layout
 	.login-form
-		.login-header Knowledgebase Login
+		.login-header Knowledgebase Login	
 		form#login-form.form-horizontal(method='post', action='/login')
 			.control-group
 				label.control-label(for='input-username') Username
@@ -21,11 +21,15 @@ block page-layout
 			.control-group
 				.controls
 					button#btn-login.btn(type='submit') Sign in
+			.control-group
+				a(href='/user/new') Sign Up
+			.control-group
+				a(href='/user/list') Users List
 
-
-			section#UserInput
-				a Backbone demo
-			ol#HelloList
+			//-
+				section#UserInput
+					a Backbone demo
+				ol#HelloList
 
 	
 	- if (locals.error && locals.error != "")
@@ -33,3 +37,18 @@ block page-layout
 			button.close(data-dismiss='alert') x
 			strong Error:
 			span= error
+
+	- if (errors.length)
+		.alert.alert-error.login-message
+			button.close(data-dismiss='alert') x
+			strong Error:
+			- errors.forEach(function(error){
+				.alert-message.error= error
+			- })
+
+	- if (messages.length)
+		.alert.alert-success.login-message
+			button.close(data-dismiss='alert') x
+			- messages.forEach(function(message){
+				.alert-success.success= message
+			- })
