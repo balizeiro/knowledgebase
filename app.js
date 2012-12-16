@@ -3,6 +3,7 @@ var express = require('express')
   , index = require('./routes/index')
   , dashboard = require('./routes/dashboard')
   , document = require('./routes/document')
+  , tag = require('./routes/tag')
   , login = require('./routes/login')
   , logout = require('./routes/logout')
   , http = require('http')
@@ -57,6 +58,8 @@ app.get('/user/new', index.signup)
 app.get('/user/list', index.users)
 app.get('/document/new', document.new)
 app.post('/document/new', document.save)
+app.get('/tag/new', tag.new)
+app.post('/tag/new', tag.save)
 app.get('*', function(req, res){
   res.render('error404');
 });

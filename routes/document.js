@@ -11,20 +11,6 @@ exports.save = function(req, res) {
     doc.tags = req.param('tags');
 
 	doc.save(function(err) {
-		if (!err) {
-			documentModel.find({}, function(err, docs) {
-				if (!err) { 
-		 			res.render('dashboard', { 
-		 				title: 'Dashboard',
-		 				documents: docs
-		 			});
-		        }
-		        else { 
-		        	throw err;
-		        }
-		    });
-		} else {
-			throw err;
-		}
+		res.redirect('dashboard');
 	});
 };

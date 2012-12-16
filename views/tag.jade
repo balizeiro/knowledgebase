@@ -1,0 +1,11 @@
+extends base
+
+block page-content
+	.row-fluid
+		.span12
+			form#create-tag-form(method='post', action='/tag/new')
+				input(type='text', name='name', placeholder='Name', required).input-block-level
+				textarea(rows='20', name='description', placeholder='Description', required).input-block-level
+				.control-group
+				.controls
+					button.btn(type='submit') Create Tag

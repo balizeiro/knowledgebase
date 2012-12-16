@@ -6,6 +6,7 @@ block page-content
 	article.row
 		.span14
 			- if (documents.length)
+				h3 Documents
 				table.zebra-striped
 					thead
 						tr
@@ -23,3 +24,22 @@ block page-content
 					- })
 			- else
 				p No documents created yet.
+
+
+
+
+			- if (tags.length)
+				h3 Tags
+				table.zebra-striped
+					thead
+						tr
+							th Name
+							th Description
+					tbody
+					- tags.forEach(function(doc){
+						tr
+							td= doc['name']
+							td= doc['description']
+					- })
+			- else
+				p No tags created yet.

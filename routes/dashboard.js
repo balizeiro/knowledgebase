@@ -1,15 +1,14 @@
 var documentModel = require('../models/Document');
+var tagModel = require('../models/Tag');
 
 exports.index = function(req, res){
 	documentModel.find({}, function(err, docs) {
-		if (!err) { 
+		tagModel.find({}, function(err, tags) {
  			res.render('dashboard', { 
  				title: 'Dashboard',
- 				documents: docs
+ 				documents: docs,
+ 				tags: tags
  			});
-        }
-        else { 
-        	throw err;
-        }
+ 		});
     });
 };
