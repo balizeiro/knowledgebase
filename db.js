@@ -19,5 +19,4 @@ exports.makeConnection = function() {/*
 	});*/
 
 	mongoose.connect('mongodb://localhost/knowledgebase');
-	//mongoose.connect('mongodb://dcardoso:pr3V10usP4sSw0rDsSuCk5s@mindsinfusion.com/knowledgebase');	
 }
