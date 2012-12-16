@@ -172,3 +172,43 @@ body {
 .user-actions .action-text {
   margin-left: 10px;
 }
+/* DASHBOARD WIDGET PANES ==================*/
+.widget-container {
+  background: none repeat scroll 0 0 #F9F9F9;
+  border: 1px solid #CDCDCD;
+  clear: both;
+  position: relative;
+}
+.widget-container table th {
+  background: #ccc;
+}
+.widget-container .widget-title {
+  background-color: #EFEFEF;
+  background-image: -moz-linear-gradient(center top, #fdfdfd 0%, #eaeaea 100%);
+  border-bottom: 1px solid #CDCDCD;
+  height: 36px;
+}
+.widget-container .widget-title h5 {
+  color: #666666;
+  float: left;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 12px;
+  margin: 0;
+  padding: 12px;
+  text-shadow: 0 1px 0 #FFFFFF;
+}
+.widget-container .widget-title .widget-icon {
+  border-right: 1px solid #CDCDCD;
+  float: left;
+  opacity: 0.6;
+  padding: 9px 10px 7px 11px;
+}
+.no-results {
+  padding: 10px 0;
+  text-align: center;
+}
+/*** Latest Documents */
+.latest-documents {
+  width: 100%;
+}

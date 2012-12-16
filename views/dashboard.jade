@@ -1,45 +1,54 @@
 extends base
 
 block page-content
-	p this is dashboard page content
 
-	article.row
-		.span14
-			- if (documents.length)
-				h3 Documents
-				table.zebra-striped
-					thead
-						tr
-							th Title
-							th Body
-							th Tags
-							th Date
-					tbody
-					- documents.forEach(function(doc){
-						tr
-							td= doc['title']
-							td= doc['body']
-							td= doc['tags']
-							td= doc['date']
-					- })
-			- else
-				p No documents created yet.
+	section.row-fluid
+		.span6
+			.widget-container
+				if documents.length
+					.widget-title
+						.widget-icon
+							i.icon.icon-file
+						h5 Latest documents
+					table.table.table-hover.table-condensed
+						thead
+							tr
+								th Title
+								th Tags
+								th Date
 
+						each doc in documents
+							tr
+								td= doc['title']
+								td= doc['tags']
+								td= doc['date']
+				else
+					.widget-title
+						.widget-icon
+							i.icon.icon-file
+						h5 Latest documents
+					p.no-results No documents created yet.
 
+		.span6
+			.widget-container
+				if tags.length
+					.widget-title
+						.widget-icon
+							i.icon.icon-tags
+						h5 Latest tags
+					table.table.table-hover.table-condensed
+						thead
+							tr
+								th Name
+								th Description
 
-
-			- if (tags.length)
-				h3 Tags
-				table.zebra-striped
-					thead
-						tr
-							th Name
-							th Description
-					tbody
-					- tags.forEach(function(doc){
-						tr
-							td= doc['name']
-							td= doc['description']
-					- })
-			- else
-				p No tags created yet.
+						each tag in tags
+							tr
+								td= tag['name']
+								td= tag['description']
+				else
+					.widget-title
+						.widget-icon
+							i.icon.icon-tags
+						h5 Latest tags
+					p.no-results No tags created yet.
