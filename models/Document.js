@@ -6,6 +6,7 @@ var DocumentSchema = new Schema({
     id        : ObjectId,
     title     : { type: String, required: true },
     body      : { type: String, required: true },
+    tags      : [],
     date      : Date
 });
 

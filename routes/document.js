@@ -8,6 +8,7 @@ exports.save = function(req, res) {
 	var doc = new documentModel();
     doc.title = req.param('title');
     doc.body = req.param('body');
+    doc.tags = req.param('tags');
 
 	doc.save(function(err) {
 		if (!err) {

@@ -11,12 +11,14 @@ block page-content
 						tr
 							th Title
 							th Body
+							th Tags
 							th Date
 					tbody
 					- documents.forEach(function(doc){
 						tr
 							td= doc['title']
 							td= doc['body']
+							td= doc['tags']
 							td= doc['date']
 					- })
 			- else
