@@ -21,7 +21,7 @@ block page-content
 							tr
 								td= doc['title']
 								td= doc['tags']
-								td= doc['date']
+								td= doc['date'].toDateString()
 				else
 					.widget-title
 						.widget-icon

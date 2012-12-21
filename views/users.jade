@@ -19,7 +19,7 @@ block page-layout
                                     td= user['username']
                                     td= user['password']
                                     td= user['email']
-                                    td= user['date']
+                                    td= user['date'].toDateString()
                             - })
                     - else
                         p No registered users yet.
